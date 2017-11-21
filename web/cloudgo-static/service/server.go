@@ -1,6 +1,7 @@
 package service
 
 import (
+	"fmt"
 	"net/http"
 	"os"
 
@@ -32,11 +33,14 @@ func initRoutes(mx *mux.Router, formatter *render.Render) {
 			panic("Could not retrive working directory")
 		} else {
 			webRoot = root
-			//fmt.Println(root)
+			fmt.Println(root)
 		}
 	}
 
 	mx.HandleFunc("/api/test", apiTestHandler(formatter)).Methods("GET")
+	mx.HandleFunc("/unknown", unknownHandler)
+
 	mx.PathPrefix("/static").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir(webRoot+"/assets/"))))
+	mx.PathPrefix("/").Handler(http.FileServer(http.Dir(webRoot + "/assets/")))
 
 }
