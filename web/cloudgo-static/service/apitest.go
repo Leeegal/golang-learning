@@ -12,6 +12,8 @@ func apiTestHandler(formatter *render.Render) http.HandlerFunc {
 		formatter.JSON(w, http.StatusOK, struct {
 			ID      string `json:"id"`
 			Content string `json:"content"`
-		}{ID: "8675309", Content: "Hello from Go!"})
+			Name    string `json:"name"`
+			Date    string `json:"date"`
+		}{ID: "15331145", Content: "lg", Name: "lg", Date: "2017/11/16"})
 	}
 }
