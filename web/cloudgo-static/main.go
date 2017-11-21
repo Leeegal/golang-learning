@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"https://github.com/Leeegal/golang-learning/tree/master/web/cloudgo-static/service"
+	"github.com/Leeegal/golang-learning/tree/master/web/cloudgo-static/service"
 	flag "github.com/spf13/pflag"
 )
 
